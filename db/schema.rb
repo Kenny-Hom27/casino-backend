@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180314142653) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.integer "bankroll", default: 1000
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
