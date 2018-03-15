@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(bankroll: params["bankroll"])
+    render json: @user
+  end
+
   private
 
   def user_params
