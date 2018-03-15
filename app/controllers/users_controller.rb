@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(username: params[:username], password: params[:password] )
     if @user.valid?
       @user.save
       token = issue_token({ 'user_id': @user.id})
-      render json: {'token': token }
+      render json: {'token': token, 'userId': @user.id, 'username': @user.username, 'bankroll': @user.bankroll }
     else
       render json: {'error': 'Username already exists! Try again.'}
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :bankroll)
+    params.require(:user).permit(:username, :password)
   end
 
 end
