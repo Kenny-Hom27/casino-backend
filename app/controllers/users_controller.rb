@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       token = issue_token({ 'user_id': @user.id})
       render json: {'token': token, 'userId': @user.id, 'username': @user.username, 'bankroll': @user.bankroll }
     else
-      render json: {'error': 'Username already exists! Try again.'}
+      render json: {'error': @user.errors.full_messages}
     end
   end
 
