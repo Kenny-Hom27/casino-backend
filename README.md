@@ -7,8 +7,16 @@ Try it out! - https://casino-frontend.herokuapp.com/
 
 OS X & Linux:
 
+- Front end 
+
 ```sh
 npm install
+```
+
+- Back end
+
+```sh
+bundle install
 ```
 
 ## How to Play!
